@@ -1,7 +1,7 @@
 # Importing required libraries
 import numpy as np
 import streamlit as st
-
+import cv2
 import tensorflow_hub as hub
 import gdown
 import os
@@ -33,26 +33,26 @@ dog_image = st.file_uploader("Please upload an image file of the dog:", type=["j
 # Predict button
 submit = st.button('Predict')
 
-# # Functionality for Predict button
-# if submit:
-#     # If image is uploaded
-#     if dog_image is not None:
-#         # Convert the image file to an opencv image
-#         file_bytes = np.asarray(bytearray(dog_image.read()), dtype=np.uint8)
-#         opencv_image = cv2.imdecode(file_bytes, 1)
+# Functionality for Predict button
+if submit:
+    # If image is uploaded
+    if dog_image is not None:
+        # Convert the image file to an opencv image
+        file_bytes = np.asarray(bytearray(dog_image.read()), dtype=np.uint8)
+        opencv_image = cv2.imdecode(file_bytes, 1)
 
-#         # Display the uploaded image
-#         st.image(opencv_image, channels="BGR", caption="Uploaded Image")
+        # Display the uploaded image
+        st.image(opencv_image, channels="BGR", caption="Uploaded Image")
 
-#         # Resize the image to match model's input shape
-#         opencv_image = cv2.resize(opencv_image, (350,350))  # resizing to (350,350)
+        # Resize the image to match model's input shape
+        opencv_image = cv2.resize(opencv_image, (350,350))  # resizing to (350,350)
 
-#         # Prepare image for model prediction
-#         opencv_image = opencv_image / 255.0  # rescaling
-#         opencv_image = np.expand_dims(opencv_image, axis=0)
+        # Prepare image for model prediction
+        opencv_image = opencv_image / 255.0  # rescaling
+        opencv_image = np.expand_dims(opencv_image, axis=0)
 
-#         # Make prediction using the model
-#         Y_pred = model.predict(opencv_image)
+        # Make prediction using the model
+        Y_pred = model.predict(opencv_image)
 
-#         # Display the predicted dog breed
-#         st.title(f"The dog breed is most likely a {CLASS_NAMES[np.argmax(Y_pred)].replace('_', ' ').title()}.")
+        # Display the predicted dog breed
+        st.title(f"The dog breed is most likely a {CLASS_NAMES[np.argmax(Y_pred)].replace('_', ' ').title()}.")

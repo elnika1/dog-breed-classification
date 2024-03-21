@@ -1,7 +1,7 @@
 # Importing required libraries
 import numpy as np
 import streamlit as st
-import cv2
+#import cv2
 import tensorflow_hub as hub
 import gdown
 import os

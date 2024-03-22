@@ -3,7 +3,7 @@ import numpy as np
 import streamlit as st
 import cv2
 import tensorflow_hub as hub
-import gdown
+# import gdown
 import os
 from tensorflow.keras.models import load_model
 
@@ -12,8 +12,8 @@ gdrive_url = 'https://drive.google.com/uc?id=1C1DdXOSFy7kFhuiFN4SX6N7yD3A7_53Z'
 model_path = 'final_model.h5'
 
 # Check if the model file already exists, if not download it
-if not os.path.exists(model_path):
-    gdown.download(gdrive_url, model_path, quiet=False)
+# if not os.path.exists(model_path):
+#     gdown.download(gdrive_url, model_path, quiet=False)
 
 # Loading the pretrained model with custom_objects
 model = load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer})

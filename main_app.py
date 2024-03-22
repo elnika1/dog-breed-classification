@@ -2,7 +2,7 @@
 import numpy as np
 import streamlit as st
 import cv2
-#import tensorflow_hub as hub
+import tensorflow_hub as hub
 # import gdown
 import os
 from tensorflow.keras.models import load_model

@@ -24,8 +24,8 @@ CLASS_NAMES = ['boston_bull', 'dingo', 'pekinese', 'bluetick', 'golden_retriever
 CLASS_NAMES.sort()
 
 # Configuring Streamlit app
-st.title("Canine Classifier :dog:")
-st.markdown("Welcome to Canine Classifier! This application uses a deep learning model to predict the breed of a dog from an image. Please upload an image file below, and the app will predict the breed of the dog.")
+# st.title("Canine Classifier :dog:")
+# st.markdown("Welcome to Canine Classifier! This application uses a deep learning model to predict the breed of a dog from an image. Please upload an image file below, and the app will predict the breed of the dog.")
 
 # Upload button for dog image
 dog_image = st.file_uploader("Please upload an image file of the dog:", type=["jpg", "jpeg", "png"])

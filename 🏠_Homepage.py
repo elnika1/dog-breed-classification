@@ -73,13 +73,6 @@ if submit:
 
         # Make prediction using the model
         Y_pred = model.predict(opencv_image)
-        print(Y_pred)
 
         # Display the predicted dog breed
         st.title(f"The dog breed is most likely a {CLASS_NAMES[np.argmax(Y_pred)].replace('_', ' ').title()}.")
-
-        predicted_class_index = np.argmax(Y_pred)
-        predicted_breed = CLASS_NAMES[predicted_class_index].replace('_', ' ').title()
-        prediction_percentage = Y_pred[predicted_class_index] * 100
-
-        st.markdown(f"The dog breed is most likely a {predicted_breed} with {prediction_percentage:.2f}% confidence.")
